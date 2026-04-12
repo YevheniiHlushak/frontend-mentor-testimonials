@@ -1,0 +1,14 @@
+@use "./variables" as *;
+
+body {
+  background-color: var(--bg-color-body);
+  font-family: var(--font-family);
+  font-size: var(--font-size-main);
+  font-weight: var(--font-weight-medium);
+}
+
+.section {
+}
+
+.container {
+}
