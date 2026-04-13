@@ -1,0 +1,20 @@
+@use "../utils/functions" as *;
+
+.author {
+  display: flex;
+  align-items: center;
+  column-gap: 1.0625rem;
+
+  &__image-thumb {
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  &__name {
+    margin-bottom: 0.25rem;
+  }
+
+  &__position {
+    font-size: fluid-value(11, 14);
+  }
+}

@@ -1,14 +1,19 @@
 @use "./variables" as *;
+@use "./functions" as *;
 
 body {
   background-color: var(--bg-color-body);
   font-family: var(--font-family);
-  font-size: var(--font-size-main);
+  font-size: fluid-value(13, 18);
   font-weight: var(--font-weight-medium);
+  line-height: 1.1;
 }
 
 .section {
+  padding-block: fluid-value(73, 100);
 }
 
 .container {
+  margin-inline-start: auto;
+  padding-inline: fluid-value(35, 80);
 }

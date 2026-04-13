@@ -1,7 +1,28 @@
+@use "../utils/functions" as *;
+
 .attribution {
-  font-size: 0.6875rem;
+  padding-block: 0.9375rem;
+  font-size: fluid-value(11, 14);
   text-align: center;
 }
-.attribution a {
-  color: hsl(228, 45%, 44%);
+
+.link {
+  color: var(--bg-color-grey-500);
+  transition: color var(--transition-duration);
+
+  &:hover,
+  &:focus {
+    color: var(--bg-color-purple);
+  }
+
+  &:focus,
+  &:focus-visible {
+    outline: var(--outline);
+    outline-offset: 3px;
+    border-radius: var(--border-radius);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition-duration: 0.01ms;
+  }
 }

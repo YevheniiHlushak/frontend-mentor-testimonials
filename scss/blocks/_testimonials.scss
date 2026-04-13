@@ -1,0 +1,51 @@
+@use "../utils/variables" as *;
+
+.testimonials {
+  &__list {
+    display: grid;
+    row-gap: var(--card-gap);
+    justify-content: center;
+    grid-template-columns: repeat(1, minmax(auto, 40.625rem));
+    grid-template-areas:
+      "Daniel"
+      "Jonathan"
+      "Janette"
+      "Patrick"
+      "Kira";
+
+    @media screen and (min-width: $tablet-bp) {
+      grid-template-columns: repeat(2, minmax(auto, 40.625rem));
+      column-gap: var(--card-gap);
+      grid-template-areas:
+        "Daniel    Daniel"
+        "Jonathan  Janette"
+        "Patrick   Patrick"
+        "Kira      Kira";
+    }
+
+    @media screen and (min-width: $desktop-bp) {
+      grid-template-columns: repeat(4, minmax(15.9375rem, 28.125rem));
+      column-gap: var(--card-gap);
+      grid-template-areas:
+        "Daniel   Daniel Jonathan Kira"
+        "Janette  Patrick Patrick  Kira";
+    }
+  }
+}
+
+.daniel {
+  grid-area: Daniel;
+}
+
+.jonathan {
+  grid-area: Jonathan;
+}
+.janette {
+  grid-area: Janette;
+}
+.patrick {
+  grid-area: Patrick;
+}
+.kira {
+  grid-area: Kira;
+}

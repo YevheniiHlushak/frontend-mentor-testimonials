@@ -1,0 +1,22 @@
+@use "../utils/variables" as *;
+@use "../utils/functions" as *;
+
+.testimonial {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  row-gap: var(--inner-card-gap);
+  padding: var(--card-padding);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+
+  &__title {
+    font-size: fluid-value(20, 28);
+    font-weight: var(--font-weight-semiBold);
+    line-height: 1.2;
+  }
+
+  &__description {
+    line-height: 1.4;
+  }
+}

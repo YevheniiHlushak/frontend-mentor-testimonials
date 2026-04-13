@@ -1,15 +1,21 @@
 :root {
   --color-black: #121212;
-  --color-dark-blue: #19202d;
   --color-white: #ffffff;
+
   --color-grey-100: #e7eaee;
   --color-grey-200: #cfcfcf;
   --color-grey-400: #676d7e;
-  --color-grey-500: #48556a;
-  --text-color-card-one: #ede4ff;
-  --decor-color-card-one: #a775f1;
-  --bg-color-card-one: #733fc8;
+
+  --text-color-purple-card: #ede4ff;
+  --text-color-grey-500: #48556a;
+  --decor-color-purple-card: #a775f1;
+
+  --bg-color-purple: #733fc8;
+  --bg-color-grey-500: #48556a;
+  --bg-color-dark-blue: #19202d;
   --bg-color-body: #f6f5f6;
+
+  --shadow-color: rgba(72, 85, 106, 0.25);
 
   --font-family: "Barlow Semi Condensed";
   --font-size-main: 0.8125rem;
@@ -17,13 +23,16 @@
   --font-weight-medium: 500;
   --font-weight-semiBold: 600;
 
+  --line-height-heading: 1.2;
+
   --border-radius: 0.5rem;
   --card-padding: 2rem;
   --card-gap: 2rem;
   --inner-card-gap: 1rem;
-  --shadow: 2.5rem 3.75rem 3.125rem -2.9375rem rgba(72, 85, 106, 0.25);
+  --shadow: 2.5rem 3.75rem 3.125rem -2.9375rem var(--shadow-color);
+  --outline: 2px solid var(--bg-color-purple);
+  --transition-duration: 0.3s;
 }
 
-$mobile-bp: 23.4375rem;
 $tablet-bp: 48rem;
 $desktop-bp: 90rem;

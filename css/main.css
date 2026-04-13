@@ -1,0 +1,391 @@
+@charset "UTF-8";
+:root {
+  --color-black: #121212;
+  --color-white: #ffffff;
+  --color-grey-100: #e7eaee;
+  --color-grey-200: #cfcfcf;
+  --color-grey-400: #676d7e;
+  --text-color-purple-card: #ede4ff;
+  --text-color-grey-500: #48556a;
+  --decor-color-purple-card: #a775f1;
+  --bg-color-purple: #733fc8;
+  --bg-color-grey-500: #48556a;
+  --bg-color-dark-blue: #19202d;
+  --bg-color-body: #f6f5f6;
+  --shadow-color: rgba(72, 85, 106, 0.25);
+  --font-family: "Barlow Semi Condensed";
+  --font-size-main: 0.8125rem;
+  --font-size-heading: 1.25rem;
+  --font-weight-medium: 500;
+  --font-weight-semiBold: 600;
+  --line-height-heading: 1.2;
+  --border-radius: 0.5rem;
+  --card-padding: 2rem;
+  --card-gap: 2rem;
+  --inner-card-gap: 1rem;
+  --shadow: 2.5rem 3.75rem 3.125rem -2.9375rem var(--shadow-color);
+  --outline: 2px solid var(--bg-color-purple);
+  --transition-duration: 0.3s;
+}
+
+/**
+  Нормализация блочной модели
+ */
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+/**
+  Убираем внутренние отступы слева тегам списков,
+  у которых есть атрибут class
+ */
+:where(ul, ol):where([class]) {
+  padding-left: 0;
+}
+
+/**
+  Убираем внешние отступы body и двум другим тегам,
+  у которых есть атрибут class
+ */
+body,
+:where(blockquote, figure, fieldset):where([class]) {
+  margin: 0;
+}
+
+/**
+  Убираем внешние отступы вертикали нужным тегам,
+  у которых есть атрибут class
+ */
+:where(h1, h2, h3, h4, h5, h6, p, ul, ol, dl):where([class]) {
+  margin-block: 0;
+}
+
+:where(dd[class]) {
+  margin-left: 0;
+}
+
+:where(fieldset[class]) {
+  padding: 0;
+  border: none;
+}
+
+/**
+  Убираем стандартный маркер маркированному списку,
+  у которого есть атрибут class
+ */
+:where(ul[class]) {
+  list-style: none;
+}
+
+:where(address[class]) {
+  font-style: normal;
+}
+
+/**
+  Обнуляем вертикальные внешние отступы параграфа,
+  объявляем локальную переменную для внешнего отступа вниз,
+  чтобы избежать взаимодействие с более сложным селектором
+ */
+p {
+  --paragraphMarginBottom: 24px;
+  margin-block: 0;
+}
+
+/**
+  Внешний отступ вниз для параграфа без атрибута class,
+  который расположен не последним среди своих соседних элементов
+ */
+p:where(:not([class]):not(:last-child)) {
+  margin-bottom: var(--paragraphMarginBottom);
+}
+
+/**
+  Упрощаем работу с изображениями и видео
+ */
+img,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/**
+  Наследуем свойства шрифт для полей ввода
+ */
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+html {
+  /**
+    Пригодится в большинстве ситуаций
+    (когда, например, нужно будет "прижать" футер к низу сайта)
+   */
+  height: 100%;
+  /**
+    Убираем скачок интерфейса по горизонтали
+    при появлении / исчезновении скроллбара
+   */
+  scrollbar-gutter: stable;
+  /**
+    Плавный скролл
+   */
+  scroll-behavior: smooth;
+}
+
+body {
+  /**
+    Пригодится в большинстве ситуаций
+    (когда, например, нужно будет "прижать" футер к низу сайта)
+   */
+  min-height: 100%;
+  /**
+    Унифицированный интерлиньяж
+   */
+  line-height: 1.5;
+}
+
+/**
+  Нормализация высоты элемента ссылки при его инспектировании в DevTools
+ */
+a:where([class]) {
+  display: inline-flex;
+}
+
+/**
+  Курсор-рука при наведении на элемент
+ */
+button,
+label {
+  cursor: pointer;
+}
+
+/**
+  Убирает серую подсветку при тапе на мобильных устройствах (iOS/Android)
+ */
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/**
+  Приводим к единому цвету svg-элементы
+  (за исключением тех, у которых уже указан
+  атрибут fill со значением 'none' или начинается с 'url')
+ */
+:where([fill]:not([fill=none], [fill^=url])) {
+  fill: currentColor;
+}
+
+/**
+  Приводим к единому цвету svg-элементы
+  (за исключением тех, у которых уже указан
+  атрибут stroke со значением 'none')
+ */
+:where([stroke]:not([stroke=none], [stroke^=url])) {
+  stroke: currentColor;
+}
+
+/**
+  Чиним баг задержки смены цвета при взаимодействии с svg-элементами
+ */
+svg * {
+  transition-property: fill, stroke;
+}
+
+/**
+  Приведение рамок таблиц в классический 'collapse' вид
+ */
+:where(table) {
+  border-collapse: collapse;
+  border-color: currentColor;
+}
+
+/**
+  Удаляем все анимации и переходы для людей,
+  которые предпочитают их не использовать
+ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+body {
+  background-color: var(--bg-color-body);
+  font-family: var(--font-family);
+  font-size: clamp(0.8125rem, 0.8125rem + (1.125 - 0.8125) * (100vw - 23.4375px) / (90 - 23.4375), 1.125rem);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.1;
+}
+
+.section {
+  padding-block: clamp(4.5625rem, 4.5625rem + (6.25 - 4.5625) * (100vw - 23.4375px) / (90 - 23.4375), 6.25rem);
+}
+
+.container {
+  margin-inline-start: auto;
+  padding-inline: clamp(2.1875rem, 2.1875rem + (5 - 2.1875) * (100vw - 23.4375px) / (90 - 23.4375), 5rem);
+}
+
+.testimonials__list {
+  display: grid;
+  row-gap: var(--card-gap);
+  justify-content: center;
+  grid-template-columns: repeat(1, minmax(auto, 40.625rem));
+  grid-template-areas: "Daniel" "Jonathan" "Janette" "Patrick" "Kira";
+}
+@media screen and (min-width: 48rem) {
+  .testimonials__list {
+    grid-template-columns: repeat(2, minmax(auto, 40.625rem));
+    column-gap: var(--card-gap);
+    grid-template-areas: "Daniel    Daniel" "Jonathan  Janette" "Patrick   Patrick" "Kira      Kira";
+  }
+}
+@media screen and (min-width: 90rem) {
+  .testimonials__list {
+    grid-template-columns: repeat(4, minmax(15.9375rem, 28.125rem));
+    column-gap: var(--card-gap);
+    grid-template-areas: "Daniel   Daniel Jonathan Kira" "Janette  Patrick Patrick  Kira";
+  }
+}
+
+.daniel {
+  grid-area: Daniel;
+}
+
+.jonathan {
+  grid-area: Jonathan;
+}
+
+.janette {
+  grid-area: Janette;
+}
+
+.patrick {
+  grid-area: Patrick;
+}
+
+.kira {
+  grid-area: Kira;
+}
+
+.testimonial {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  row-gap: var(--inner-card-gap);
+  padding: var(--card-padding);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+}
+.testimonial__title {
+  font-size: clamp(1.25rem, 1.25rem + (1.75 - 1.25) * (100vw - 23.4375px) / (90 - 23.4375), 1.75rem);
+  font-weight: var(--font-weight-semiBold);
+  line-height: 1.2;
+}
+.testimonial__description {
+  line-height: 1.4;
+}
+
+.author {
+  display: flex;
+  align-items: center;
+  column-gap: 1.0625rem;
+}
+.author__image-thumb {
+  border-radius: 50%;
+  overflow: hidden;
+}
+.author__name {
+  margin-bottom: 0.25rem;
+}
+.author__position {
+  font-size: clamp(0.6875rem, 0.6875rem + (0.875 - 0.6875) * (100vw - 23.4375px) / (90 - 23.4375), 0.875rem);
+}
+
+.attribution {
+  padding-block: 0.9375rem;
+  font-size: clamp(0.6875rem, 0.6875rem + (0.875 - 0.6875) * (100vw - 23.4375px) / (90 - 23.4375), 0.875rem);
+  text-align: center;
+}
+
+.link {
+  color: var(--bg-color-grey-500);
+  transition: color var(--transition-duration);
+}
+.link:hover, .link:focus {
+  color: var(--bg-color-purple);
+}
+.link:focus, .link:focus-visible {
+  outline: var(--outline);
+  outline-offset: 3px;
+  border-radius: var(--border-radius);
+}
+@media (prefers-reduced-motion: reduce) {
+  .link {
+    transition-duration: 0.01ms;
+  }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.card--purple-bg {
+  background-color: var(--bg-color-purple);
+  color: var(--text-color-purple-card);
+}
+.card--purple-bg .author__image-thumb {
+  border: 2px solid var(--decor-color-purple-card);
+}
+
+.card--gray-bg {
+  background-color: var(--bg-color-grey-500);
+  color: var(--color-grey-200);
+}
+
+.card--white-bg {
+  background-color: var(--color-white);
+  color: var(--color-grey-400);
+}
+.card--white-bg .author__name, .card--white-bg .testimonial__title {
+  color: var(--text-color-grey-500);
+}
+
+.card--dark-blue-bg {
+  background-color: var(--bg-color-dark-blue);
+  color: var(--color-grey-100);
+}
+.card--dark-blue-bg .author__image-thumb {
+  border: 2px solid var(--bg-color-purple);
+}
+.card--dark-blue-bg .author__name, .card--dark-blue-bg .author__position {
+  color: var(--color-white);
+}
+.card--dark-blue-bg .testimonial__title {
+  color: var(--color-grey-200);
+}
+
+.card--purple-bg .author__name, .card--purple-bg .testimonial__title,
+.card--gray-bg .author__name,
+.card--gray-bg .testimonial__title {
+  color: var(--color-white);
+}/*# sourceMappingURL=main.css.map */

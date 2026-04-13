@@ -1,0 +1,61 @@
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.card--purple-bg {
+  background-color: var(--bg-color-purple);
+  color: var(--text-color-purple-card);
+
+  & .author__image-thumb {
+    border: 2px solid var(--decor-color-purple-card);
+  }
+}
+
+.card--gray-bg {
+  background-color: var(--bg-color-grey-500);
+  color: var(--color-grey-200);
+}
+
+.card--white-bg {
+  background-color: var(--color-white);
+  color: var(--color-grey-400);
+
+  & .author__name,
+  & .testimonial__title {
+    color: var(--text-color-grey-500);
+  }
+}
+
+.card--dark-blue-bg {
+  background-color: var(--bg-color-dark-blue);
+  color: var(--color-grey-100);
+
+  & .author__image-thumb {
+    border: 2px solid var(--bg-color-purple);
+  }
+
+  & .author__name,
+  & .author__position {
+    color: var(--color-white);
+  }
+  & .testimonial__title {
+    color: var(--color-grey-200);
+  }
+}
+
+.card--purple-bg,
+.card--gray-bg {
+  & .author__name,
+  & .testimonial__title {
+    color: var(--color-white);
+  }
+}

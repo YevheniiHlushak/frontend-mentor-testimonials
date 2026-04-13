@@ -1,3 +1,8 @@
 @use "./utils/variables";
 @use "./utils/normalize";
 @use "./utils/globals";
+@use "./blocks/testimonials";
+@use "./blocks/testimonial";
+@use "./blocks/author";
+@use "./blocks/attribution";
+@use "./utils/helpers";
