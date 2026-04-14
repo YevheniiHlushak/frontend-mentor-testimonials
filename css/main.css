@@ -353,8 +353,16 @@ body {
 }
 
 .card--purple-bg {
-  background-color: var(--bg-color-purple);
   color: var(--text-color-purple-card);
+  background-color: var(--bg-color-purple);
+}
+@media screen and (min-width: 48rem) {
+  .card--purple-bg {
+    background-image: url("../../images/bg-pattern-quotation.svg");
+    background-repeat: no-repeat;
+    background-position: top right 25%;
+    background-size: 6.5rem 6.375rem;
+  }
 }
 .card--purple-bg .author__image-thumb {
   border: 2px solid var(--decor-color-purple-card);

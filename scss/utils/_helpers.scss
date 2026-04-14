@@ -1,3 +1,5 @@
+@use "./variables" as *;
+
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -12,8 +14,15 @@
 }
 
 .card--purple-bg {
-  background-color: var(--bg-color-purple);
   color: var(--text-color-purple-card);
+  background-color: var(--bg-color-purple);
+
+  @media screen and (min-width: $tablet-bp) {
+    background-image: url("../../images/bg-pattern-quotation.svg");
+    background-repeat: no-repeat;
+    background-position: top right 25%;
+    background-size: 6.5rem 6.375rem;
+  }
 
   & .author__image-thumb {
     border: 2px solid var(--decor-color-purple-card);
