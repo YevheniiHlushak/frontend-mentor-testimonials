@@ -5,47 +5,55 @@
     display: grid;
     row-gap: var(--card-gap);
     justify-content: center;
+
     grid-template-columns: repeat(1, minmax(auto, 40.625rem));
     grid-template-areas:
-      "Daniel"
-      "Jonathan"
-      "Janette"
-      "Patrick"
-      "Kira";
+      "card-1"
+      "card-2"
+      "card-3"
+      "card-4"
+      "card-5";
 
     @media screen and (min-width: $tablet-bp) {
       grid-template-columns: repeat(2, minmax(auto, 40.625rem));
       column-gap: var(--card-gap);
       grid-template-areas:
-        "Daniel    Daniel"
-        "Jonathan  Janette"
-        "Patrick   Patrick"
-        "Kira      Kira";
+        "card-1  card-1"
+        "card-2  card-3"
+        "card-4  card-4"
+        "card-5  card-5";
     }
 
     @media screen and (min-width: $desktop-bp) {
       grid-template-columns: repeat(4, minmax(15.9375rem, 28.125rem));
       column-gap: var(--card-gap);
       grid-template-areas:
-        "Daniel   Daniel Jonathan Kira"
-        "Janette  Patrick Patrick  Kira";
+        "card-1 card-1 card-2 card-5"
+        "card-3 card-4 card-4 card-5";
     }
+  }
+  &__item {
+    display: flex;
+    flex: 1;
   }
 }
 
-.daniel {
-  grid-area: Daniel;
+.card-1 {
+  grid-area: card-1;
 }
 
-.jonathan {
-  grid-area: Jonathan;
+.card-2 {
+  grid-area: card-2;
 }
-.janette {
-  grid-area: Janette;
+
+.card-3 {
+  grid-area: card-3;
 }
-.patrick {
-  grid-area: Patrick;
+
+.card-4 {
+  grid-area: card-4;
 }
-.kira {
-  grid-area: Kira;
+
+.card-5 {
+  grid-area: card-5;
 }

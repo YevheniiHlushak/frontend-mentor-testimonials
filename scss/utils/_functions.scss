@@ -14,7 +14,7 @@
     #{$minSize * 1rem},
     calc(
       #{$minSize * 1rem} + (#{$maxSize} - #{$minSize}) *
-        (100vw - $minWidth * 1px) / (#{$maxWidth} - #{$minWidth})
+        (100vw - $minViewportWidth * 1px) / (#{$maxWidth} - #{$minWidth})
     ),
     #{$maxSize * 1rem}
   );

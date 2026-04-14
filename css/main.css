@@ -222,18 +222,18 @@ svg * {
 body {
   background-color: var(--bg-color-body);
   font-family: var(--font-family);
-  font-size: clamp(0.8125rem, 0.8125rem + (1.125 - 0.8125) * (100vw - 23.4375px) / (90 - 23.4375), 1.125rem);
+  font-size: clamp(0.8125rem, 0.8125rem + (1.125 - 0.8125) * (100vw - 375px) / (90 - 23.4375), 1.125rem);
   font-weight: var(--font-weight-medium);
   line-height: 1.1;
 }
 
 .section {
-  padding-block: clamp(4.5625rem, 4.5625rem + (6.25 - 4.5625) * (100vw - 23.4375px) / (90 - 23.4375), 6.25rem);
+  padding-block: clamp(4.5625rem, 4.5625rem + (6.25 - 4.5625) * (100vw - 375px) / (90 - 23.4375), 6.25rem);
 }
 
 .container {
   margin-inline-start: auto;
-  padding-inline: clamp(2.1875rem, 2.1875rem + (5 - 2.1875) * (100vw - 23.4375px) / (90 - 23.4375), 5rem);
+  padding-inline: clamp(2.1875rem, 2.1875rem + (5 - 2.1875) * (100vw - 375px) / (90 - 23.4375), 5rem);
 }
 
 .testimonials__list {
@@ -241,54 +241,57 @@ body {
   row-gap: var(--card-gap);
   justify-content: center;
   grid-template-columns: repeat(1, minmax(auto, 40.625rem));
-  grid-template-areas: "Daniel" "Jonathan" "Janette" "Patrick" "Kira";
+  grid-template-areas: "card-1" "card-2" "card-3" "card-4" "card-5";
 }
 @media screen and (min-width: 48rem) {
   .testimonials__list {
     grid-template-columns: repeat(2, minmax(auto, 40.625rem));
     column-gap: var(--card-gap);
-    grid-template-areas: "Daniel    Daniel" "Jonathan  Janette" "Patrick   Patrick" "Kira      Kira";
+    grid-template-areas: "card-1  card-1" "card-2  card-3" "card-4  card-4" "card-5  card-5";
   }
 }
 @media screen and (min-width: 90rem) {
   .testimonials__list {
     grid-template-columns: repeat(4, minmax(15.9375rem, 28.125rem));
     column-gap: var(--card-gap);
-    grid-template-areas: "Daniel   Daniel Jonathan Kira" "Janette  Patrick Patrick  Kira";
+    grid-template-areas: "card-1 card-1 card-2 card-5" "card-3 card-4 card-4 card-5";
   }
 }
-
-.daniel {
-  grid-area: Daniel;
+.testimonials__item {
+  display: flex;
+  flex: 1;
 }
 
-.jonathan {
-  grid-area: Jonathan;
+.card-1 {
+  grid-area: card-1;
 }
 
-.janette {
-  grid-area: Janette;
+.card-2 {
+  grid-area: card-2;
 }
 
-.patrick {
-  grid-area: Patrick;
+.card-3 {
+  grid-area: card-3;
 }
 
-.kira {
-  grid-area: Kira;
+.card-4 {
+  grid-area: card-4;
+}
+
+.card-5 {
+  grid-area: card-5;
 }
 
 .testimonial {
   display: flex;
   flex-direction: column;
-  height: 100%;
   row-gap: var(--inner-card-gap);
   padding: var(--card-padding);
   border-radius: var(--border-radius);
   box-shadow: var(--shadow);
 }
 .testimonial__title {
-  font-size: clamp(1.25rem, 1.25rem + (1.75 - 1.25) * (100vw - 23.4375px) / (90 - 23.4375), 1.75rem);
+  font-size: clamp(1.25rem, 1.25rem + (1.75 - 1.25) * (100vw - 375px) / (90 - 23.4375), 1.75rem);
   font-weight: var(--font-weight-semiBold);
   line-height: 1.2;
 }
@@ -309,12 +312,12 @@ body {
   margin-bottom: 0.25rem;
 }
 .author__position {
-  font-size: clamp(0.6875rem, 0.6875rem + (0.875 - 0.6875) * (100vw - 23.4375px) / (90 - 23.4375), 0.875rem);
+  font-size: clamp(0.6875rem, 0.6875rem + (0.875 - 0.6875) * (100vw - 375px) / (90 - 23.4375), 0.875rem);
 }
 
 .attribution {
   padding-block: 0.9375rem;
-  font-size: clamp(0.6875rem, 0.6875rem + (0.875 - 0.6875) * (100vw - 23.4375px) / (90 - 23.4375), 0.875rem);
+  font-size: clamp(0.6875rem, 0.6875rem + (0.875 - 0.6875) * (100vw - 375px) / (90 - 23.4375), 0.875rem);
   text-align: center;
 }
 
